@@ -1,0 +1,76 @@
+services: 
+
+  database-service:
+    image: hagarhorvitz/freedom-database-image:1.0
+
+    build: ./freedom_database
+
+    container_name: freedom-database-container
+
+    volumes:
+      - freedom-volume:/var/lib/mysql
+
+    environment:
+      MYSQL_HOST: localhost
+      MYSQL_USER: Shraga
+      MYSQL_PASSWORD: LionKing 
+      MYSQL_DATABASE: freedom 
+      MYSQL_ROOT_PASSWORD: PrideRock 
+
+    # What to do if the container crashes: 
+    restart: unless-stopped # Restart when crashes, unless we stopped it.
+
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      timeout: 5s
+      retries: 160
+
+# ------------------------------------------------------------------------------------------ #
+
+  django-service:
+
+    depends_on:
+      database-service:
+        condition: service_healthy
+
+    image: hagarhorvitz/freedom-django-image:1.0
+
+    build: ./freedom_backend
+
+    container_name: freedom-django-container
+
+    environment:
+      MYSQL_HOST: database-service 
+      MYSQL_USER: Shraga
+      MYSQL_PASSWORD: LionKing 
+      MYSQL_DATABASE: freedom
+
+    restart: unless-stopped
+
+    # Port mapping (host:container)
+    ports:
+      - 8000:8000
+
+# ------------------------------------------------------------------------------------------ #
+
+  react-service: 
+
+    depends_on:
+      - django-service
+
+    image: hagarhorvitz/freedom-react-image:1.0
+
+    build: ./freedom_front
+
+    container_name: freedom-react-container
+
+    restart: unless-stopped
+
+    # Port mapping (host:container)
+    ports:
+      - 3000:3000
+
+# ------------------------------------------------------------------------------------------ #
+
+volumes:
+  freedom-volume:
