@@ -1,9 +1,10 @@
 # Freedom Frontend
 
-This repository contains the **frontend** of the **Freedom Vacations Management System**, designed specifically for **admins users**. The frontend is built using **React** and **TypeScript**, providing an interactive and user-friendly interface for managing vacation data. It communicates with the backend via REST APIs to display vacation data and statistics.
+This folder contains the **frontend** of the **Freedom Vacations Management System**, designed specifically for **admins users**. The frontend is built using **React** and **TypeScript**, providing an interactive and user-friendly interface for managing vacation data. It communicates with the backend via REST APIs to display vacation data and statistics.
 
 
 ## Features
+
 - **Authentication**:
     - Secure login form using JWT-based authentication.
     - Credentials are sent to the backend, and upon validation, a JWT token is issued.
@@ -12,21 +13,22 @@ This repository contains the **frontend** of the **Freedom Vacations Management 
 - **Vacation Statistics**:
     - Displays total users, vacations, and likes.
     - Shows likes distribution by country.
-- **Navigation**:
+- **Routing & Navigation**:
     - Dynamic routing using React Router for multi-page functionality.
     - Components like Header, Menu, and UserMenu for structured navigation.
-- **Responsive Design**: Adaptable to various screen sizes using CSS Modules.
-- **Error Handling**: Includes a custom "Page Not Found" page for invalid routes.
+- **Responsive Design**: Optimized for various screen sizes using Material-UI and CSS Modules.
+- **Error Handling**: Includes a custom `Page Not Found.tsx` page for invalid routes.
 
 
 ## Project Details
-# Public Folder
+
+### Public Folder
 - `index.html`: Root HTML template for the app.
 - `manifest.json`: Provides metadata for progressive web app support.
 - `robots.txt`: Configures crawler instructions for the website.
 - `sun.ico`: App icon.
 
-# `src` Folder
+### `src` Folder
 - **Utils** (Utility functions and configurations):
     - `AppConfig.ts`: Stores application-level configurations, such as API base URLs.
     - `Notify.ts`: Implements reusable notifications using Material-UI's Snackbar and Alert components.
@@ -70,6 +72,7 @@ This repository contains the **frontend** of the **Freedom Vacations Management 
 
 
 ## API Endpoints
+
 - The frontend communicates with the backend's REST APIs for:
 - **Authentication**:
     - Login: Sends user credentials to receive a JWT token, which is then saved to the local storage.
@@ -80,6 +83,7 @@ This repository contains the **frontend** of the **Freedom Vacations Management 
 
 
 ## Saving Data to Local State and Storage
+
 - The application efficiently manages data using a combination of local state and local storage:
 - **Local State**:
     - Redux is used for managing global application state, ensuring consistent and efficient updates across components.
@@ -91,9 +95,10 @@ This hybrid approach ensures fast, secure, and user-friendly interactions throug
 
 
 ## Installation
+
 1. **Clone the repository**:
 ```bash
-git clone https://github.com/yourusername/freedom_frontend.git
+git clone https://github.com/hagarhorvitz/freedom_project_part3.git
 cd freedom_frontend
 ```
 
@@ -109,6 +114,7 @@ npm start
 
 
 ## Docker Deployment
+
 - The frontend is containerized for deployment. Follow these steps:
 1. **Build the Docker image**:
 ```bash
@@ -127,6 +133,7 @@ docker-compose up
 
 
 ## Technologies Used
+
 - **React**: Frontend library for building dynamic UIs.
 - **TypeScript**: Provides static typing for robust development.
 - **Material-UI (MUI)**: Used for pre-styled, accessible components.
@@ -138,4 +145,5 @@ docker-compose up
 
 
 ## License
+
 This project is for educational purposes only and follows the terms provided by the course.
