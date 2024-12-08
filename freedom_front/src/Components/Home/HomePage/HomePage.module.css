@@ -1,0 +1,17 @@
+.HomePage {
+	display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    gap: 10px;
+    margin: 10px;
+    color: #004a4d;
+    padding: auto;
+    font-size: large;
+    font-weight: 645;
+    box-sizing: border-box;
+}
+
+.HomePage img{
+    width: 440px;
+}

@@ -1,0 +1,20 @@
+.App {
+    height: 100%;
+    box-sizing: border-box;
+    display: grid;
+    grid-template-columns: 1fr 5fr;
+    grid-template-rows: 12% 88%;
+    color: #004a4d;
+}
+
+aside{
+    grid-row: span 2;
+    border-right: 2px solid #004a4d33;
+    border-radius: 2px;
+}
+
+main{
+    overflow: auto;
+    align-content: center;
+}
+

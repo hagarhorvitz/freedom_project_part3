@@ -1,0 +1,69 @@
+.PageNotFound {
+	display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    background-image: url(../../../Assets/Images/page_not_found_2.jpg);
+    background-size: auto;
+    background-repeat: no-repeat;
+    background-position: 50%;
+}
+.PageNotFound img{
+    width: 50%;
+    height: auto;
+    margin-top: -40px;
+    visibility: hidden;
+}
+
+@media (min-width: 1601px) {
+    .PageNotFound{
+        background-size: 770px;
+        margin: 5px auto;
+    }
+    .PageNotFound img{
+        width: 670px;
+    }
+}
+@media (max-width: 1600px) {
+    .PageNotFound{
+        background-size: 728px;
+        margin: 5px;
+    }
+    .PageNotFound img{
+        width: 635px;
+    }
+}
+@media (max-width: 1350px) {
+    .PageNotFound{
+        background-size: 725px;
+        margin: 5px;
+    }
+    .PageNotFound img{
+        width: 630px;
+    }
+}
+@media (max-width: 1100px) {
+    .PageNotFound {
+        background-size: 690px;
+    }
+    .PageNotFound img{
+        width: 600px;
+    }
+}
+@media (max-width: 800px) {
+    .PageNotFound {
+        background-size: 550px;
+        margin: 5px;
+    }
+    .PageNotFound img{
+        width: 500px;
+    }
+}
+@media (max-width: 700px) {
+    .PageNotFound {
+        background-size: 490px;
+        margin: 5px;
+    }
+    .PageNotFound img{
+        width: 440px;
+    }
+}

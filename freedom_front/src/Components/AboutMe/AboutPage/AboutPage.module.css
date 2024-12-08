@@ -1,0 +1,13 @@
+.AboutPage {
+	display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    gap: 10px;
+    margin: 10px;
+    padding: auto;
+    color: #004a4d;
+    font-size: large;
+    font-weight: 600;
+    box-sizing: border-box;
+}
