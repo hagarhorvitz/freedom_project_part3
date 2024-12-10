@@ -62,10 +62,10 @@ The frontend is the user interface of the Freedom Vacations Management System, b
     - `NotifyContext.ts`: Provides a global notification system for displaying alerts and messages across the app.
 
 - **Components:**
-    - **Home/HomePage:**
-        - `HomePage.tsx`: Serves as the landing page of the application.
-    - **AboutMe/AboutPage:**
-        - `AboutPage.tsx`: A personal introduction of me, offers a glimpse into the person behind the system. This page shares insights about my skills, work ethic, passion for full-stack development, and personal inspirations.
+    - **Home:**
+        - `HomePage`: Serves as the landing page of the application.
+    - **AboutMe:**
+        - `AboutPage`: A personal introduction of me, offers a glimpse into the person behind the system. This page shares insights about my skills, work ethic, passion for full-stack development, and personal inspirations.
     - **Layout:**
         - `Header`: Displays the top navigation bar.
         - `Menu`: Provides a sidebar navigation menu.
