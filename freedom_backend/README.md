@@ -84,12 +84,14 @@ pip install -r requirements.txt
 - Import the provided MySQL database file (`freedom.sql`) into your MySQL server.
 
 7. **Set up .env with:**
+```plain text
 MYSQL_HOST = "localhost"
 MYSQL_PORT= "3306"
 MYSQL_USER = "root"
 MYSQL_DATABASE= "freedom"
 MYSQL_PASSWORD = ""
 SECRET_KEY = <your-secret-key>
+```
 
 8. **Run the server:**
 ```bash
