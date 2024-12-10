@@ -21,7 +21,7 @@ The backend of the Freedom Vacations Management System is a robust API service b
 
 
 ## Folder Structure
--The backend is organized into distinct folders and files to maintain modularity, scalability, and clarity. Each component serves a specific purpose in the overall functionality of the system.
+- The backend is organized into distinct folders and files to maintain modularity, scalability, and clarity. Each component serves a specific purpose in the overall functionality of the system.
 
 ### `src` Folder
 - **api:**
