@@ -1,130 +1,100 @@
-# Freedom Backend
+# Freedom Vacations Management System - Backend
 
-This folder contains the **backend** of the **Freedom Vacations Management System**. The backend is built using **Django** and **Django REST Framework (DRF)**, providing REST APIs for user authentication, vacation statistics, and like tracking. The backend connects to a **MySQL** database and runs in a **Docker** container for deployment scalability.
+The backend of the Freedom Vacations Management System is a robust API service built using Django and Django REST Framework (DRF). It powers the frontend by providing secure endpoints APIs for authentication and vacation statistics. 
 
 
 ## Features
 
-- **Authentication**: JWT-based login and logout functionality with role-based access control (Admins only).
-- **Vacation Statistics**:
+- **Authentication:**
+    - Secure JWT-based authentication for admin users.
+    - Role-based access control using role_id for administrators.
+- **Vacation Statistics:**
     - Count of past, ongoing, and future vacations.
     - Total number of users in the system.
     - Total number of likes across all vacations.
     - Like distribution by destination.
-- **Database**: Uses a MySQL database with tables for users, roles, vacations, likes, and countries.
-- **CORS Enabled**: Supports cross-origin requests, enabling React-based frontend integration.
+    - These statistics provide administrators with insights into user engagement and vacation popularity, enabling data-driven decision-making.
+- **Database Integration:**
+    - Seamless connection to a MySQL database for efficient query handling.
+- **CORS Enabled:**
+    - Supports cross-origin requests for seamless integration with modern frontend frameworks like React, ensuring secure and efficient API communication.
 
 
-## Environment Variables
+## Folder Structure
+-The backend is organized into distinct folders and files to maintain modularity, scalability, and clarity. Each component serves a specific purpose in the overall functionality of the system.
 
-The `.env` file is used to store sensitive information, such as database credentials and the secret key. Ensure the `.env` file is included in the `.gitignore` to avoid exposing sensitive data in public repositories.
-
-- Here are the keys you need to define in your `.env` file:
-
-```plaintext
-MYSQL_HOST = "localhost"
-MYSQL_PORT= "3306"
-MYSQL_USER = "root"
-MYSQL_PASSWORD = ""
-MYSQL_DATABASE= "freedom"
-SECRET_KEY = "your_secret_key"
-```
-
-
-## API Endpoints
-
-- **Authentication**:
-    - **Login**: POST /api/login/:
-        - Request:
-            ```json
-            { 
-            "email": "admin@example.com", 
-            "password": "password" 
-            }
-            ```
-        - Response: Returns a JWT token and update user to active (2 in the database).
-
-    - **Logout**: POST /api/logout/:
-        - Request: 
-            ```json
-            { 
-            "user_id": 1 
-            }
-            ```
-        - Response: Logs out the user and update user to not active (1 in the database).
-
-- **Statistics**:
-    - **Vacation Status**: GET /api/total_vacations/
-        - Returns the count of past, ongoing, and future vacations.
-    - **Total Users**: GET /api/total_users/
-        - Returns the total number of users in the system.
-    - **Total Likes**: GET /api/total_likes/
-        - Returns the total number of likes.
-    - **Likes by Destination**: GET /api/total_country_likes/
-        - Returns like distribution by destination.
+### `src` Folder
+- **api:**
+    - `models.py`: Defines database models for users, vacations, likes, roles and countries.
+    - `views.py`: Implements API logic.
+    - `serializers.py`: Validates and formats data for the API.
+    - `urls.py`: Maps API endpoints.
+    - `migrations/`: Tracks changes to database schemas over time.
+- **freedom:**
+    - `settings.py`: Configures Django and integrates MySQL.
+    - `urls.py`: Maps project-wide URLs.
+- **utils:**
+    - `app_config.py`: Centralized application settings and constants.
 
 
-## Database Models
+## Technologies Used
 
-- The database uses the following models:
-    - **UsersModel**: Stores user details, including first name, last name, email, and hashed passwords. Also tracks user roles and activity status.
-    - **RolesModel**: Defines roles for users, such as Admin or Regular User.
-    - **VacationsModel**: Stores details about vacations, including dates, description, price, and destination.
-    - **LikesModel**: Tracks likes for vacations, linking users to their liked vacations.
-    - **CountriesModel**: Lists all available vacation destinations.
-
-
-## Installation
-
-1. **Clone the repository**:
-```bash
-git clone https://github.com/hagarhorvitz/freedom_project_part3.git
-cd freedom_backend
-```
-
-2. **Create a virtual environment and install dependencies**:
-```bash
-python -m venv envFreedom
-envFreedom/Scripts/Activate
-pip install -r requirements.txt
-```
-
-3. **Set up the database**:
-- Import the provided MySQL database file (`freedom.sql`) into your MySQL server.
-
-4. **Configure the .env file with your database credentials.**
-
-5. **Run the server**:
-```bash
-python src/manage.py runserver
-```
+- **Framework:** Django, Django REST Framework
+- **Database Integration:** MySQL, mysqlclient, mysql-connector-python
+- **Authentication:** PyJWT
+- **Environment Management:** Python dotenv
+- **Cross-Origin Resource Sharing:** django-cors-headers
+- **Networking:** Requests
+- **Containerization:** Docker
 
 
 ## Docker Deployment
 
-- The backend is containerized for deployment. Follow these steps:
-1. **Build the Docker image**:
+- **Please follow the instructions in the overall `README.md` to deploy with Docker.**
+
+
+## Installation (Without Docker)
+
+1. **Clone the repository:**
 ```bash
-docker build -t hagarhorvitz/freedom-django-image:1.0 .
+git clone https://github.com/hagarhorvitz/freedom_project_part3.git
 ```
 
-2. **Run the container**:
+2. **Navigate to freedom_backend:**
 ```bash
-docker run -p 8000:8000 --env-file .env freedom-django-container
+cd freedom_backend
 ```
 
-3. **Alternatively, use docker-compose**:
+3. **Create a virtual environment:**
 ```bash
-docker-compose up
+python -m venv envFreedom
 ```
 
-## Technologies Used
+4. **Activate the virtual environment:**
+```bash
+envFreedom/Scripts/Activate
+```
 
-- **Framework**: Django, Django REST Framework
-- **Database**: MySQL
-- **Authentication**: JWT
-- **Containerization**: Docker
-- **Environment Management**: Python dotenv
+5. **Install dependencies:**
+```bash
+pip install -r requirements.txt
+```
+
+6. **Set up the database:**
+- Import the provided MySQL database file (`freedom.sql`) into your MySQL server.
+
+7. **Set up .env with:**
+MYSQL_HOST = "localhost"
+MYSQL_PORT= "3306"
+MYSQL_USER = "root"
+MYSQL_DATABASE= "freedom"
+MYSQL_PASSWORD = ""
+SECRET_KEY = <your-secret-key>
+
+8. **Run the server:**
+```bash
+python src/manage.py runserver
+```
 
 
 ## License
